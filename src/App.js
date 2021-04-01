@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DataSet from "./components/DataSet";
+import Graph from "./components/Graph";
+import { createRandomPeople } from "./scripts/generateData";
 
 function App() {
+  const people = createRandomPeople(30);
+  // const people = [
+  //   { weight: 0.5, height: 1.4 },
+  //   { weight: 2.4, height: 1.9 },
+  //   { weight: 2.9, height: 3.2 },
+  // ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DataSet data={people} />
+      <Graph data={people} x={"weight"} y={"height"} />
     </div>
   );
 }
